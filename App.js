@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TextInput, Button, ScrollView, FlatList } from 
 import {Picker} from '@react-native-picker/picker';
 
 export default function App() {
+    const [selectedValue, setSelectedValue]=useState("Seç")
     const [enteredGoal, setEnteredGoal] = useState('');
     const [courseGoals, setCourseGoals] = useState([]);
     const goalInputHandler=(enteredText)=>{
@@ -18,13 +19,19 @@ export default function App() {
     <View style={styles.screen}>
     <View>
      <Picker
-           selectedValue={enteredGoal}
+           selectedValue={selectedValue}
+           style={styles.picker}
            onValueChange={(itemValue, itemIndex)=>
-            setEnteredGoal(itemValue)
+            setSelectedValue(itemValue)
             
            }>
-             <Picker.Item label = "Java" value="java"/>
-             <Picker.Item label ="JavaScript" value="js"/>
+             <Picker.Item label = "Konu Başlığı Seç" value="Seç"/>
+             <Picker.Item label ="spor" value="spor"/>
+             <Picker.Item label ="yemek" value="yemek"/>
+             <Picker.Item label ="sanat" value="sanat"/>
+             <Picker.Item label ="müzik" value="müzik"/>
+
+
 
            </Picker>
       </View>
